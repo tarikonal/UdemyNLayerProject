@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UdemyNLayerProject.Core.Models;
+
+namespace UdemyNLayerProject.Core.Services
+{
+    interface ICategoryService : IService<Category>
+    {
+        Task<Category> GetWithProductsByIdAsync(int categoryId);
+
+        //Category özgü metodlar buraya tanımlanabilir
+    }
+}
