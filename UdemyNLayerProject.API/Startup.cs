@@ -21,6 +21,11 @@ using UdemyNLayerProject.Data.UnitOfWorks;
 using UdemyNLayerProject.Service.Services;
 using AutoMapper;
 using UdemyNLayerProject.API.Filters;
+using Microsoft.AspNetCore.Diagnostics;
+using UdemyNLayerProject.API.DTOs;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using UdemyNLayerProject.API.Extension;
 
 namespace UdemyNLayerProject.API
 {
@@ -80,6 +85,8 @@ namespace UdemyNLayerProject.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UdemyNLayerProject.API v1"));
             }
+           
+            app.UseCustomException();
 
             app.UseHttpsRedirection();
 

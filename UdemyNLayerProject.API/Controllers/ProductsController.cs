@@ -27,6 +27,8 @@ namespace UdemyNLayerProject.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+
+            //throw new Exception("Bir hata meydana geldi:GetAll");
             var products = await _productService.GetAllAsync();
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }

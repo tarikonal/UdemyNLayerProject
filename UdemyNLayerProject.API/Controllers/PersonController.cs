@@ -22,6 +22,8 @@ namespace UdemyNLayerProject.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+           
+
             var persons = await _personService.GetAllAsync();
             return Ok(persons);
         }
