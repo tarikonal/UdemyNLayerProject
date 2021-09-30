@@ -16,6 +16,7 @@ using UdemyNLayerProject.Data;
 using UdemyNLayerProject.Data.Repositories;
 using UdemyNLayerProject.Data.UnitOfWorks;
 using UdemyNLayerProject.Service.Services;
+using UdemyNLayerProject.Web.Filters;
 
 namespace UdemyNLayerProject.Web
 {
@@ -32,6 +33,7 @@ namespace UdemyNLayerProject.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddScoped<NotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
