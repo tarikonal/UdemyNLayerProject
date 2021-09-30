@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,13 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UdemyNLayerProject.Core.Repositories;
-using UdemyNLayerProject.Core.Services;
-using UdemyNLayerProject.Core.UnitOfWorks;
-using UdemyNLayerProject.Data;
-using UdemyNLayerProject.Data.Repositories;
-using UdemyNLayerProject.Data.UnitOfWorks;
-using UdemyNLayerProject.Service.Services;
+
 using UdemyNLayerProject.Web.ApiService;
 using UdemyNLayerProject.Web.Filters;
 
@@ -40,21 +34,21 @@ namespace UdemyNLayerProject.Web
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<NotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IProductService, ProductService>();
+            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            //services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
+            //services.AddScoped<ICategoryService, CategoryService>();
+            //services.AddScoped<IProductService, ProductService>();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
-            services.AddDbContext<AppDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration
-                    ["ConnectionStrings:SqlConStr"].ToString(), o => {
-                        o.MigrationsAssembly("UdemyNLayerProject.Data");
-                    });
-            });
+            //services.AddDbContext<AppDbContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration
+            //        ["ConnectionStrings:SqlConStr"].ToString(), o => {
+            //            o.MigrationsAssembly("UdemyNLayerProject.Data");
+            //        });
+            //});
 
 
             services.AddControllersWithViews();
